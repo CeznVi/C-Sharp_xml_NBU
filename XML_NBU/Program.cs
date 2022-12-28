@@ -36,20 +36,15 @@ namespace XMLNBU
         {
             Console.OutputEncoding = Encoding.Unicode;
 
-            //XmlDocument xml = new();
-            //xml.Load("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
-            //PrintNode(xml);
+            XmlDocument xml = new();
+            xml.Load("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
+            PrintNode(xml);
 
-            //Console.WriteLine("Тест загрузки ХМЛ");
+            Console.WriteLine("Тест загрузки ХМЛ");
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
-            request.Method = "GET";
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            string data = string.Empty;
-            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
-                data = reader.ReadToEnd();
 
-            Console.WriteLine(data);
+
+
 
         }
     }
