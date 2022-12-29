@@ -11,8 +11,17 @@ namespace XML_NBU
     /// </summary>
     public class Currency
     {
+        /// <summary>
+        /// Параметр абревіатура валюти
+        /// </summary>
         public string? ShortName { get; set; }
+        /// <summary>
+        /// Параметр повна назва валюти
+        /// </summary>
         public string? Name { get; set; }
+        /// <summary>
+        /// Курс валюти 
+        /// </summary>
         public double Rate { get; set; }
 
         /// <summary>
@@ -31,7 +40,6 @@ namespace XML_NBU
             Name = name;
             Rate = rate;
         }
-
         /// <summary>
         /// Повертає інформацію про валюту в текстовому вигляді 
         /// </summary>
@@ -42,7 +50,5 @@ namespace XML_NBU
                    $"Повна назва {Name}\n" +
                    $"Курс: {Rate}\n";
         }
-
-
     }
 }
