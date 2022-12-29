@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -77,12 +78,13 @@ namespace XML_NBU
                     if (xmlR.NodeType == XmlNodeType.Element &&
                        xmlR.Name == "currency")
                     {
-                        Currency currency = new();
-                        currency.Name = new String(GetValueTag(xmlR, "txt"));
-                        currency.Rate = Convert.ToDouble(GetValueTag(xmlR, "rate").Replace('.', ','));
-                        currency.ShortName = new String(GetValueTag(xmlR, "cc"));
+                        Currency currency = new()
+                        {
+                            Name = new String(GetValueTag(xmlR, "txt")),
+                            Rate = Convert.ToDouble(GetValueTag(xmlR, "rate").Replace('.', ',')),
+                            ShortName = new String(GetValueTag(xmlR, "cc"))
+                        };
                         ExchRate.Add(currency);
-
                         //встановлення дати
                         if (date.Length == 0)
                             date = new String(GetValueTag(xmlR, "exchangedate"));
@@ -91,10 +93,28 @@ namespace XML_NBU
             }
         }
 
+        public void Print()
+        {
+            Console.WriteLine($"Дата оновлення курсу {date}".PadLeft(36));
+
+            foreach (Currency item in ExchRate)
+                Console.WriteLine(item);
+            Console.WriteLine("----------------------------------------------------");
+            Console.SetCursorPosition(0,0);
+            Console.ReadKey();
+        }
+
+
+        ///TO DO
         public void SaveXMLToFile()
         { 
             
 
+        }
+        //to do
+        public void LoadXMLfromFile() 
+        { 
+        
         }
     }
 }

@@ -25,6 +25,11 @@ namespace XML_NBU
         public double Rate { get; set; }
 
         /// <summary>
+        /// Масив абрівіатур дорогоцінних металів
+        /// </summary>
+        private readonly string compareName = "XAU XAG  XPT XPD";
+
+        /// <summary>
         /// Конструктор без параметрів 
         /// </summary>
         public Currency() { }
@@ -34,11 +39,15 @@ namespace XML_NBU
         /// <param name="shortName">Коротка назва</param>
         /// <param name="name">Повна назва</param>
         /// <param name="rate">Курс</param>
-        public Currency(string? shortName, string? name, double rate)
+        public Currency(string? sName, string? name, double rate)
         {
-            ShortName = shortName;
+            ShortName = sName;
             Name = name;
-            Rate = rate;
+
+            if (compareName.Contains(compareName))
+                Rate = ConvertToGramRate(rate);
+            else
+                Rate = rate;
         }
         /// <summary>
         /// Повертає інформацію про валюту в текстовому вигляді 
@@ -46,9 +55,18 @@ namespace XML_NBU
         /// <returns>string (інфомація в текстовому вигляді про валюту)</returns>
         public override string ToString()
         {
-            return $"Абревіатура {ShortName}\n" +
-                   $"Повна назва {Name}\n" +
-                   $"Курс: {Rate}\n";
+            return "----------------------------------------------------\n" +
+                   "Абревіатура: ".PadRight(18) + 
+                   $"{ShortName}\n" +
+                   "Повна назва: ".PadRight(18) +
+                   $"{Name}\n" +
+                   "Курс: ".PadRight(18) +
+                   $"{Rate} грн.";
+        }
+
+        private double ConvertToGramRate(double rateForUncia)
+        {
+           return rateForUncia = rateForUncia / 28.349523125;
         }
     }
 }

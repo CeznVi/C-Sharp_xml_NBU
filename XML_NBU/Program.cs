@@ -8,17 +8,18 @@ namespace XML_NBU
 
         static void Main()
         {
+            Console.Title = "NBU INFORMER";
             Console.OutputEncoding = Encoding.Unicode;
+
+            Console.SetWindowSize(52, 30);
 
             CurrencyApp app = new();
             app.LoadXMLfromNBU();
+            app.Print();
 
 
-            //foreach (Currency item in ExchRate)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine($"\n\n\nДАТА {date}");
+
+
 
 
             //TODO
