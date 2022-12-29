@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Xml.Linq;
 
 
 namespace XML_NBU
@@ -10,7 +11,6 @@ namespace XML_NBU
         {
             Console.Title = "NBU INFORMER";
             Console.OutputEncoding = Encoding.Unicode;
-
             Console.SetWindowSize(52, 30);
 
             CurrencyApp app = new();
@@ -18,15 +18,14 @@ namespace XML_NBU
             app.Print();
 
 
-
-
-
-
             //TODO
-            //1) SORT mekhanizm
-            //2) красивый принт
             //3) делегаты на печать с условием
 
+
+            //от большего к меньшему
+            //ExchRate.Sort((s2, s1) => s1.Rate.CompareTo(s2.Rate));
+            ////от меньшего к большему
+            //ExchRate.Sort((s1, s2) => s1.Rate.CompareTo(s2.Rate));
         }
     }
 }

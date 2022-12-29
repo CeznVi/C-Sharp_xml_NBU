@@ -29,31 +29,6 @@ namespace XML_NBU
         /// </summary>
         public CurrencyApp() { }
 
-        static void PrintNode(XmlNode node)
-        {
-            Console.WriteLine($"Type={node.NodeType}".PadRight(20) +
-                $"Name={node.Name}".PadRight(20) +
-                $"Value={node.Value}".PadRight(20));
-
-            if (node.Attributes != null)
-            {
-                foreach (XmlNode item in node.Attributes)
-                {
-                    Console.WriteLine($"Type={item.NodeType}".PadRight(20) +
-                $"Name={item.Name}".PadRight(20) +
-                $"Value={item.Value}".PadRight(20));
-                }
-            }
-
-            if (node.HasChildNodes)
-            {
-                foreach (XmlNode item in node.ChildNodes)
-                {
-                    PrintNode(item);
-                }
-            }
-        }
-
         static string GetValueTag(XmlTextReader xml, string Tag)
         {
             while (xml.Read())
@@ -65,9 +40,11 @@ namespace XML_NBU
                     return xml.Value;
                 }
             }
-            return null;
+            return "";
         }
-
+        /// <summary>
+        /// Завантажити данні ХМЛ з сайту НБУ
+        /// </summary>
         public void LoadXMLfromNBU()
         {
             using (XmlTextReader xmlR = new(link))
@@ -82,7 +59,7 @@ namespace XML_NBU
                         {
                             Name = new String(GetValueTag(xmlR, "txt")),
                             Rate = Convert.ToDouble(GetValueTag(xmlR, "rate").Replace('.', ',')),
-                            ShortName = new String(GetValueTag(xmlR, "cc"))
+                            ShortName = new String(GetValueTag(xmlR, "cc"))  
                         };
                         ExchRate.Add(currency);
                         //встановлення дати
@@ -90,31 +67,27 @@ namespace XML_NBU
                             date = new String(GetValueTag(xmlR, "exchangedate"));
                     }
                 }
+                ExchRate.Sort();
             }
         }
-
+        /// <summary>
+        /// Надрукувати курс валют
+        /// </summary>
         public void Print()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Дата оновлення курсу {date}".PadLeft(36));
+
+            Console.ForegroundColor = ConsoleColor.Green;
 
             foreach (Currency item in ExchRate)
                 Console.WriteLine(item);
+
             Console.WriteLine("----------------------------------------------------");
+            Console.ResetColor();
             Console.SetCursorPosition(0,0);
             Console.ReadKey();
         }
 
-
-        ///TO DO
-        public void SaveXMLToFile()
-        { 
-            
-
-        }
-        //to do
-        public void LoadXMLfromFile() 
-        { 
-        
-        }
     }
 }

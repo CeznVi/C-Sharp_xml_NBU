@@ -9,7 +9,7 @@ namespace XML_NBU
     /// <summary>
     /// Клас контейнер для зберігання інформації про валюту
     /// </summary>
-    public class Currency
+    public class Currency: IComparable<Currency>
     {
         /// <summary>
         /// Параметр абревіатура валюти
@@ -25,30 +25,10 @@ namespace XML_NBU
         public double Rate { get; set; }
 
         /// <summary>
-        /// Масив абрівіатур дорогоцінних металів
-        /// </summary>
-        private readonly string compareName = "XAU XAG  XPT XPD";
-
-        /// <summary>
         /// Конструктор без параметрів 
         /// </summary>
-        public Currency() { }
-        /// <summary>
-        /// Конструктор з параметрами
-        /// </summary>
-        /// <param name="shortName">Коротка назва</param>
-        /// <param name="name">Повна назва</param>
-        /// <param name="rate">Курс</param>
-        public Currency(string? sName, string? name, double rate)
-        {
-            ShortName = sName;
-            Name = name;
+        //public Currency() { }
 
-            if (compareName.Contains(compareName))
-                Rate = ConvertToGramRate(rate);
-            else
-                Rate = rate;
-        }
         /// <summary>
         /// Повертає інформацію про валюту в текстовому вигляді 
         /// </summary>
@@ -63,10 +43,15 @@ namespace XML_NBU
                    "Курс: ".PadRight(18) +
                    $"{Rate} грн.";
         }
-
-        private double ConvertToGramRate(double rateForUncia)
+        /// <summary>
+        /// Порівняння об'єктів
+        /// </summary>
+        /// <param name="other">Інший об'єкт данного типу</param>
+        /// <returns></returns>
+        public int CompareTo(Currency? obj)
         {
-           return rateForUncia = rateForUncia / 28.349523125;
+            if(obj == null || ShortName == null) return 0;
+            return ShortName.CompareTo(obj.ShortName);
         }
     }
 }
