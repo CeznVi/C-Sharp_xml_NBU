@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
@@ -131,6 +132,9 @@ namespace XML_NBU
         {
             try
             {
+                if (!File.Exists(dirPath+fileName))
+                    throw new FileNotFoundException($"Файл: {fileName} не створений. Робота додатка не можлива!");
+
                 XmlSerializer serializer = new(typeof(List<Currency>));
                 using (Stream stream = File.OpenRead(dirPath + fileName))
                 {
@@ -139,6 +143,12 @@ namespace XML_NBU
 
                 if(ExchRate != null)
                     date = (ExchRate.ElementAt(0).Date.ToShortDateString()).ToString();
+            }
+            catch(FileNotFoundException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
             }
             catch (Exception e)
             {
@@ -164,15 +174,37 @@ namespace XML_NBU
             Console.ReadKey();
         }
         /// <summary>
+        /// Надрукувати курс валют за умовою по курсу
+        /// </summary>
+        private void PrintForConditionsRate(Func<double, bool> func)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Дата оновлення курсу {date}".PadLeft(36));
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            foreach (Currency item in ExchRate)
+                if(func(item.Rate))
+                Console.WriteLine(item);
+
+            Console.WriteLine("----------------------------------------------------");
+            Console.ResetColor();
+            Console.SetCursorPosition(0, 0);
+            Console.ReadKey();
+        }
+        /// <summary>
         /// Меню додатку
         /// </summary>
         public void Menu()
         {
             LoadXMLfromNBU();
+            if(ExchRate != null && ExchRate.Count > 0)
+            { 
             List<string> listmenu = new()
             {
                 "       Показати курс всіх валют      ",
-                "Показати валюти (ціна яких  > 30 грн.",
+                "Показати валюти (ціна яких  >= 30 грн.",
+                "Показати валюти (ціна яких  <= 1 грн.",
                 "Відсортувати валюти (спочатку дорогі)",
                 "Відсортувати валюти (спочатку дешеві)",
                 " Відсортувати валюти за абревіатурою ",
@@ -193,17 +225,22 @@ namespace XML_NBU
                     case 0:
                         Print();
                         break;
-
+                    case 1:
+                        PrintForConditionsRate(x => x >= 30);
+                        break;
                     case 2:
-                        ExchRate.Sort((s2, s1) => s1.Rate.CompareTo(s2.Rate));
+                        PrintForConditionsRate(x => x <= 1);
                         break;
                     case 3:
-                        ExchRate.Sort((s1, s2) => s1.Rate.CompareTo(s2.Rate));
+                        ExchRate.Sort((s2, s1) => s1.Rate.CompareTo(s2.Rate));
                         break;
                     case 4:
-                        ExchRate.Sort();
+                        ExchRate.Sort((s1, s2) => s1.Rate.CompareTo(s2.Rate));
                         break;
                     case 5:
+                        ExchRate.Sort();
+                        break;
+                    case 6:
                         exit = true;
                         break;
                     default:
@@ -213,6 +250,7 @@ namespace XML_NBU
             }
             Console.Clear();
             SerializeData();
+            }
         }
     }
 }

@@ -15,14 +15,6 @@ namespace XML_NBU
 
             CurrencyApp app = new();
             app.Menu();
-
-
-            //TODO
-            //3) делегаты на печать с условием
-            //от большего к меньшему
-            //ExchRate.Sort((s2, s1) => s1.Rate.CompareTo(s2.Rate));
-            ////от меньшего к большему
-            //ExchRate.Sort((s1, s2) => s1.Rate.CompareTo(s2.Rate));
         }
     }
 }
