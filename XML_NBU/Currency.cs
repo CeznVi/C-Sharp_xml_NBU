@@ -23,11 +23,15 @@ namespace XML_NBU
         /// Курс валюти 
         /// </summary>
         public double Rate { get; set; }
+        /// <summary>
+        /// Дата обмінного курсу 
+        /// </summary>
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// Конструктор без параметрів 
         /// </summary>
-        //public Currency() { }
+        public Currency() { }
 
         /// <summary>
         /// Повертає інформацію про валюту в текстовому вигляді 
@@ -36,12 +40,14 @@ namespace XML_NBU
         public override string ToString()
         {
             return "----------------------------------------------------\n" +
-                   "Абревіатура: ".PadRight(18) + 
+                   "Абревіатура: ".PadRight(18) +
                    $"{ShortName}\n" +
                    "Повна назва: ".PadRight(18) +
                    $"{Name}\n" +
                    "Курс: ".PadRight(18) +
-                   $"{Rate} грн.";
+                   $"{Rate} грн.\n" +
+                   "Дата курсу".PadRight(18) +
+                   $"{Date.ToString("d")}";
         }
         /// <summary>
         /// Порівняння об'єктів

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace XML_NBU
 {
@@ -18,6 +20,15 @@ namespace XML_NBU
         /// Дата обмінного курсу
         /// </summary>
         private string date = "";
+        /// <summary>
+        /// Шлях до директорії де зберігати серіалізовані данні
+        /// </summary>
+        private readonly string dirPath = "../../../../SaveFile";
+        /// <summary>
+        /// Назва файлу для збереження серіалізованих данних
+        /// </summary>
+        private readonly string fileName = "/SaveData.xml";
+
         /// <summary>
         /// Контейнер валют 
         /// </summary>
@@ -47,29 +58,70 @@ namespace XML_NBU
         /// </summary>
         public void LoadXMLfromNBU()
         {
-            using (XmlTextReader xmlR = new(link))
+            try
             {
-                xmlR.WhitespaceHandling = WhitespaceHandling.None;
-                while (xmlR.Read())
+                using (XmlTextReader xmlR = new(link))
                 {
-                    if (xmlR.NodeType == XmlNodeType.Element &&
-                       xmlR.Name == "currency")
+                    xmlR.WhitespaceHandling = WhitespaceHandling.None;
+                    while (xmlR.Read())
                     {
-                        Currency currency = new()
+                        if (xmlR.NodeType == XmlNodeType.Element &&
+                           xmlR.Name == "currency")
                         {
-                            Name = new String(GetValueTag(xmlR, "txt")),
-                            Rate = Convert.ToDouble(GetValueTag(xmlR, "rate").Replace('.', ',')),
-                            ShortName = new String(GetValueTag(xmlR, "cc"))  
-                        };
-                        ExchRate.Add(currency);
-                        //встановлення дати
-                        if (date.Length == 0)
-                            date = new String(GetValueTag(xmlR, "exchangedate"));
+                            Currency currency = new()
+                            {
+                                Name = new String(GetValueTag(xmlR, "txt")),
+                                Rate = Convert.ToDouble(GetValueTag(xmlR, "rate").Replace('.', ',')),
+                                ShortName = new String(GetValueTag(xmlR, "cc")),
+                                Date = DateTime.Parse(GetValueTag(xmlR, "exchangedate"))
+                            };
+                            ExchRate.Add(currency);
+                            //встановлення дати
+                            if (date.Length == 0)
+                                date = new String(GetValueTag(xmlR, "exchangedate"));
+                        }
                     }
+                    ExchRate.Sort();
                 }
-                ExchRate.Sort();
+            }
+            catch (System.Net.Http.HttpRequestException)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Хост не відповідає, або відсутне інтернет з'єднання");
+                Console.ResetColor();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
+        public void SerializeData()
+        {
+            try
+            {
+                if (!Directory.Exists(dirPath))
+                {
+                    Directory.CreateDirectory(dirPath);
+                }
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Currency>));
+
+                using (Stream stream = File.Create(dirPath + fileName))
+                {
+                    serializer.Serialize(stream, ExchRate);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
+
         /// <summary>
         /// Надрукувати курс валют
         /// </summary>

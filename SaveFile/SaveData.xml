@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCurrency xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Currency>
+    <ShortName>AED</ShortName>
+    <Name>Дирхам ОАЕ</Name>
+    <Rate>9.9569</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>AMD</ShortName>
+    <Name>Вірменський драм</Name>
+    <Rate>0.092915</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>AUD</ShortName>
+    <Name>Австралійський долар</Name>
+    <Rate>24.7752</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>AZN</ShortName>
+    <Name>Азербайджанський манат</Name>
+    <Rate>21.5109</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>BDT</ShortName>
+    <Name>Така</Name>
+    <Rate>0.35078</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>BGN</ShortName>
+    <Name>Болгарський лев</Name>
+    <Rate>19.9424</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>BRL</ShortName>
+    <Name>Бразильський реал</Name>
+    <Rate>6.9267</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>BYN</ShortName>
+    <Name>Білоруський рубль</Name>
+    <Rate>13.2919</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>CHF</ShortName>
+    <Name>Швейцарський франк</Name>
+    <Rate>39.6064</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>CNY</ShortName>
+    <Name>Юань Женьміньбі</Name>
+    <Rate>5.2506</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>CZK</ShortName>
+    <Name>Чеська крона</Name>
+    <Rate>1.6159</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>DKK</ShortName>
+    <Name>Данська крона</Name>
+    <Rate>5.2449</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>DOP</ShortName>
+    <Name>Домініканське песо</Name>
+    <Rate>0.65264</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>DZD</ShortName>
+    <Name>Алжирський динар</Name>
+    <Rate>0.2662</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>EGP</ShortName>
+    <Name>Єгипетський фунт</Name>
+    <Rate>1.4804</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>EUR</ShortName>
+    <Name>Євро</Name>
+    <Rate>39.0041</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>GBP</ShortName>
+    <Name>Фунт стерлінгів</Name>
+    <Rate>44.0834</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>GEL</ShortName>
+    <Name>Ларі</Name>
+    <Rate>13.5605</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>HKD</ShortName>
+    <Name>Гонконгівський долар</Name>
+    <Rate>4.6647</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>HUF</ShortName>
+    <Name>Форинт</Name>
+    <Rate>0.097469</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>IDR</ShortName>
+    <Name>Рупія</Name>
+    <Rate>0.0023484</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>ILS</ShortName>
+    <Name>Новий ізраїльський шекель</Name>
+    <Rate>10.3918</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>INR</ShortName>
+    <Name>Індійська рупія</Name>
+    <Rate>0.44198</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>IQD</ShortName>
+    <Name>Іракський динар</Name>
+    <Rate>0.025047</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>IRR</ShortName>
+    <Name>Іранський ріал</Name>
+    <Rate>0.00087068</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>JPY</ShortName>
+    <Name>Єна</Name>
+    <Rate>0.27586</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>KGS</ShortName>
+    <Name>Сом</Name>
+    <Rate>0.4268</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>KRW</ShortName>
+    <Name>Вона</Name>
+    <Rate>0.028735</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>KZT</ShortName>
+    <Name>Теньге</Name>
+    <Rate>0.079042</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>LBP</ShortName>
+    <Name>Ліванський фунт</Name>
+    <Rate>0.024258</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>LYD</ShortName>
+    <Name>Лівійський динар</Name>
+    <Rate>7.573</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>MAD</ShortName>
+    <Name>Марокканський дирхам</Name>
+    <Rate>3.4993</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>MDL</ShortName>
+    <Name>Молдовський лей</Name>
+    <Rate>1.9088</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>MXN</ShortName>
+    <Name>Мексиканське песо</Name>
+    <Rate>1.8887</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>MYR</ShortName>
+    <Name>Малайзійський ринггіт</Name>
+    <Rate>8.3035</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>NOK</ShortName>
+    <Name>Норвезька крона</Name>
+    <Rate>3.7098</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>NZD</ShortName>
+    <Name>Новозеландський долар</Name>
+    <Rate>23.1662</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>PKR</ShortName>
+    <Name>Пакистанська рупія</Name>
+    <Rate>0.16151</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>PLN</ShortName>
+    <Name>Злотий</Name>
+    <Rate>8.3469</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>RON</ShortName>
+    <Name>Румунський лей</Name>
+    <Rate>7.8903</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>RSD</ShortName>
+    <Name>Сербський динар</Name>
+    <Rate>0.33288</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>RUB</ShortName>
+    <Name>Російський рубль</Name>
+    <Rate>0.5199</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>SAR</ShortName>
+    <Name>Саудівський ріял</Name>
+    <Rate>9.7311</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>SEK</ShortName>
+    <Name>Шведська крона</Name>
+    <Rate>3.4964</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>SGD</ShortName>
+    <Name>Сінгапурський долар</Name>
+    <Rate>27.1966</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>THB</ShortName>
+    <Name>Бат</Name>
+    <Rate>1.05907</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>TJS</ShortName>
+    <Name>Сомоні</Name>
+    <Rate>3.5843</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>TMT</ShortName>
+    <Name>Туркменський новий манат</Name>
+    <Rate>10.4482</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>TND</ShortName>
+    <Name>Туніський динар</Name>
+    <Rate>11.7456</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>TRY</ShortName>
+    <Name>Турецька ліра</Name>
+    <Rate>1.9552</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>TWD</ShortName>
+    <Name>Новий тайванський долар</Name>
+    <Rate>1.18988</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>USD</ShortName>
+    <Name>Долар США</Name>
+    <Rate>36.5686</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>UZS</ShortName>
+    <Name>Узбецький сум</Name>
+    <Rate>0.0032576</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>VND</ShortName>
+    <Name>Донг</Name>
+    <Rate>0.0015474</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>XAG</ShortName>
+    <Name>Срібло</Name>
+    <Rate>875.64</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>XAU</ShortName>
+    <Name>Золото</Name>
+    <Rate>66326.3</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>XDR</ShortName>
+    <Name>СПЗ (спеціальні права запозичення)</Name>
+    <Rate>48.7988</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>XPD</ShortName>
+    <Name>Паладій</Name>
+    <Rate>64909.27</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>XPT</ShortName>
+    <Name>Платина</Name>
+    <Rate>37702.23</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+  <Currency>
+    <ShortName>ZAR</ShortName>
+    <Name>Ренд</Name>
+    <Rate>2.1532</Rate>
+    <Date>2023-01-03T00:00:00</Date>
+  </Currency>
+</ArrayOfCurrency>

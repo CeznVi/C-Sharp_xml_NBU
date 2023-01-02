@@ -16,6 +16,7 @@ namespace XML_NBU
             CurrencyApp app = new();
             app.LoadXMLfromNBU();
             app.Print();
+            app.SerializeData();
 
 
             //TODO
