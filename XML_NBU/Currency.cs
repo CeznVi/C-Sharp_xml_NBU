@@ -9,16 +9,17 @@ namespace XML_NBU
     /// <summary>
     /// Клас контейнер для зберігання інформації про валюту
     /// </summary>
+    [Serializable]
     public class Currency: IComparable<Currency>
     {
         /// <summary>
         /// Параметр абревіатура валюти
         /// </summary>
-        public string? ShortName { get; set; }
+        public string ShortName { get; set; } = "NULL";
         /// <summary>
         /// Параметр повна назва валюти
         /// </summary>
-        public string? Name { get; set; }
+        public string Name { get; set; } = "NULL";
         /// <summary>
         /// Курс валюти 
         /// </summary>

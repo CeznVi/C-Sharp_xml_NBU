@@ -34,7 +34,6 @@ namespace XML_NBU
         /// </summary>
         private List<Currency> ExchRate = new();
 
-
         /// <summary>
         /// Конструктор без параметрів
         /// </summary>
@@ -56,7 +55,7 @@ namespace XML_NBU
         /// <summary>
         /// Завантажити данні ХМЛ з сайту НБУ
         /// </summary>
-        public void LoadXMLfromNBU()
+        private void LoadXMLfromNBU()
         {
             try
             {
@@ -86,11 +85,13 @@ namespace XML_NBU
             }
             catch (System.Net.Http.HttpRequestException)
             {
-                Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Хост не відповідає, або відсутне інтернет з'єднання");
+                Console.WriteLine("Данні будуть відтворені із збереженого файлу");
                 Console.ResetColor();
-
+                Console.ReadKey();
+                Console.Clear();
+                DeserializeData();
             }
             catch (Exception e)
             {
@@ -98,8 +99,10 @@ namespace XML_NBU
             }
 
         }
-
-        public void SerializeData()
+        /// <summary>
+        /// Збереження(серіалізація) данних у ХМЛ файл за допомогою XmlSerializer
+        /// </summary>
+        private void SerializeData()
         {
             try
             {
@@ -108,7 +111,7 @@ namespace XML_NBU
                     Directory.CreateDirectory(dirPath);
                 }
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Currency>));
+                XmlSerializer serializer = new(typeof(List<Currency>));
 
                 using (Stream stream = File.Create(dirPath + fileName))
                 {
@@ -121,15 +124,35 @@ namespace XML_NBU
                 Console.WriteLine(e.Message);
             }
         }
+        /// <summary>
+        /// Завантаження серіалізованих данних з ХМЛ файлу
+        /// </summary>
+        private void DeserializeData()
+        {
+            try
+            {
+                XmlSerializer serializer = new(typeof(List<Currency>));
+                using (Stream stream = File.OpenRead(dirPath + fileName))
+                {
+                    ExchRate = (List<Currency>)serializer.Deserialize(stream);
+                }
 
+                if(ExchRate != null)
+                    date = (ExchRate.ElementAt(0).Date.ToShortDateString()).ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
         /// <summary>
         /// Надрукувати курс валют
         /// </summary>
-        public void Print()
+        private void Print()
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Дата оновлення курсу {date}".PadLeft(36));
-
             Console.ForegroundColor = ConsoleColor.Green;
 
             foreach (Currency item in ExchRate)
@@ -137,9 +160,59 @@ namespace XML_NBU
 
             Console.WriteLine("----------------------------------------------------");
             Console.ResetColor();
-            Console.SetCursorPosition(0,0);
+            Console.SetCursorPosition(0, 0);
             Console.ReadKey();
         }
+        /// <summary>
+        /// Меню додатку
+        /// </summary>
+        public void Menu()
+        {
+            LoadXMLfromNBU();
+            List<string> listmenu = new()
+            {
+                "       Показати курс всіх валют      ",
+                "Показати валюти (ціна яких  > 30 грн.",
+                "Відсортувати валюти (спочатку дорогі)",
+                "Відсортувати валюти (спочатку дешеві)",
+                " Відсортувати валюти за абревіатурою ",
+                "Вихід"
+            };
 
+            bool exit = false;
+            while (!exit)
+            {
+                Console.Clear();
+                int a = ConsoleMenu.SelectVertical(HPosition.Center,
+                                    VPosition.Top,
+                                    HorizontalAlignment.Center,
+                                    listmenu);
+
+                switch (a)
+                {
+                    case 0:
+                        Print();
+                        break;
+
+                    case 2:
+                        ExchRate.Sort((s2, s1) => s1.Rate.CompareTo(s2.Rate));
+                        break;
+                    case 3:
+                        ExchRate.Sort((s1, s2) => s1.Rate.CompareTo(s2.Rate));
+                        break;
+                    case 4:
+                        ExchRate.Sort();
+                        break;
+                    case 5:
+                        exit = true;
+                        break;
+                    default:
+                        exit = true;
+                        break;
+                }
+            }
+            Console.Clear();
+            SerializeData();
+        }
     }
 }
